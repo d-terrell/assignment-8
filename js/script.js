@@ -64,23 +64,34 @@ function displayResult() {
 
     console.log
 
-        //Determines the persons category based on the interval the value of their selection of answers
-        // falls within. 
-        let resultTitle = ''; // Empty variable to store the result message of the class selected 
-                             // based on value of "totalPoints".
-        let resultDescription = ''; // Empty variable that stores the description of the class assigned to the user. 
+    //Determines the persons category based on the interval the value of their selection of answers
+    // falls within. 
+    let resultTitle = ''; // Empty variable to store the result message of the class selected 
+    // based on value of "totalPoints".
+    let resultDescription = ''; // Empty variable that stores the description of the class assigned to the user. 
 
-        if (totalPoints >= 4 && totalPoints <= 8) {
-            resultTitle = '🛡️ You\'re a TANK!';
-            resultDescription = 'You\'re the protector and anchor. You thrive under pressure and naturally put yourself between problems and the people you care about.';
-        } else if (totalPoints >= 9 && totalPoints <= 11) {
-            resultTitle = '💚 You\'re a SUPPORT!';
-            resultDescription = 'You\'re the enabler and multiplier. You make everyone around you better and find fulfillment in helping others succeed.';
-        } else if (totalPoints >= 12 && totalPoints <= 16) {
-            resultTitle = '⚔️ You\'re a DPS!';
-            resultDescription = 'You\'re the achiever and finisher. You\'re competitive, results-driven, and thrive when you can showcase your skills.';
-        }
-
-
-        
+    if (totalPoints >= 4 && totalPoints <= 8) {
+        resultTitle = '🛡️ You\'re a TANK!';
+        resultDescription = 'You\'re the protector and anchor. You thrive under pressure and naturally put yourself between problems and the people you care about.';
+    } else if (totalPoints >= 9 && totalPoints <= 11) {
+        resultTitle = '💚 You\'re a SUPPORT!';
+        resultDescription = 'You\'re the enabler and multiplier. You make everyone around you better and find fulfillment in helping others succeed.';
+    } else if (totalPoints >= 12 && totalPoints <= 16) {
+        resultTitle = '⚔️ You\'re a DPS!';
+        resultDescription = 'You\'re the achiever and finisher. You\'re competitive, results-driven, and thrive when you can showcase your skills.';
     }
+
+    const resultText = document.getElementById('result-text'); // Finds HTML element with id ="result-text"
+                                                            // and stores it in the variable, resultText.
+    resultText.innerHTML = '<h4>' + resultTitle + '</h4><p>' + resultDescription + '</p>';
+
+    const resultContainer = document.getElementById('result-container');//Finds HTML element with
+                                                                        // id ="result-text" and stores it 
+                                                                        // in the variable, result-container.
+    resultContainer.style.display = 'block';
+    resultContainer.scrollIntoView({ behavior: 'smooth' });
+}
+
+const showResultButton = document.getElementById('show-result');// Finds HTML element with id ="show-result"
+showResultButton.addEventListener('click', displayResult); // and stores it in the variable, displayResult.
+
